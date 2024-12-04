@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-Sensitive Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .note {
+            margin: 20px;
+            font-size: 18px;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 15px 30px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .btn.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="note">
+        Click the button <strong>7 PM onwards</strong> (Philippine Time).
+    </div>
+
+    <button class="btn" id="clickButton" onclick="window.location.href='home.html'">Click here</button>
+
+    <script>
+        // Function to check the time and enable the button after 7 PM (Philippine Time)
+        function checkTime() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+
+            // Philippine Time Zone Offset (UTC +8)
+            const philippinesTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
+
+            // Get the hour in Philippine time
+            const philippineHour = philippinesTime.getHours();
+
+            const button = document.getElementById("clickButton");
+
+            if (philippineHour >= 19) {
+                button.classList.add("active"); // Enable the button after 7 PM
+            } else {
+                button.classList.remove("active"); // Keep the button disabled before 7 PM
+            }
+        }
+
+        // Run the function on page load
+        window.onload = checkTime;
+
+    </script>
+    
+</body>
+</html>
