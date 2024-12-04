@@ -1,0 +1,50 @@
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #fff3f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.header p {
+    margin: 0;
+    font-size: 16px;
+    color: #ff6b6b;
+	
+}
+
+.heart {
+    font-size: 60px;
+    color: #ff6b6b;
+    animation: beat 1s infinite;
+    margin: 20px 0;
+}
+
+.message p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
